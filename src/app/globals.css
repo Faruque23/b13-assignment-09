@@ -1,26 +1,141 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #f8f6ef;
+  --surface: #fffef9;
+  --text: #17324d;
+  --muted: #5b7288;
+  --primary: #0f766e;
+  --primary-contrast: #f6fffd;
+  --accent: #f59e0b;
+  --border: #c7d8e4;
+  --danger: #c0392b;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-jakarta);
+  --font-heading: var(--font-sora);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html[data-theme="dark"] {
+  --bg: #0f202f;
+  --surface: #17324d;
+  --text: #e7f2ff;
+  --muted: #afc3d8;
+  --primary: #42b8a8;
+  --primary-contrast: #072221;
+  --accent: #ffd166;
+  --border: #36516b;
+  --danger: #ff7f7f;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background:
+    radial-gradient(circle at 15% -10%, #6cd4c8 0%, transparent 26%),
+    radial-gradient(circle at 85% 0%, #ffd38f 0%, transparent 22%),
+    var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans), sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-container {
+  width: min(1180px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.heading-main {
+  font-family: var(--font-heading), sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.btn-main {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.65rem 1.1rem;
+  background: linear-gradient(120deg, var(--primary), #0ea5a2);
+  color: var(--primary-contrast);
+  font-weight: 700;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  cursor: pointer;
+}
+
+.btn-main:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(15, 118, 110, 0.2);
+}
+
+.btn-ghost {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  background: transparent;
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.field {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--surface), white 14%);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 0.65rem 0.8rem;
+  outline: none;
+}
+
+.field:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary), transparent 70%);
+}
+
+.card {
+  background: color-mix(in oklab, var(--surface), white 6%);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(20, 41, 65, 0.08);
+}
+
+.fade-in-up {
+  animation: fade-in-up 650ms ease both;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 700px) {
+  .grid-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
