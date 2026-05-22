@@ -41,7 +41,7 @@ export default function MyTutorsPage() {
           <td className="py-3">{tutor.tutorName}</td>
           <td className="py-3">{tutor.subject}</td>
           <td className="py-3">{tutor.totalSlot}</td>
-          <td className="py-3">${tutor.hourlyFee}</td>
+          <td className="py-3">BDT {tutor.hourlyFee * 100}</td>
           <td className="py-3 flex gap-2">
             <button className="btn-ghost" onClick={() => setEditing(tutor)}>
               Update
@@ -76,7 +76,7 @@ export default function MyTutorsPage() {
                 <th className="py-2">Tutor Name</th>
                 <th className="py-2">Subject</th>
                 <th className="py-2">Slots</th>
-                <th className="py-2">Fee</th>
+                <th className="py-2">Fee (BDT)</th>
                 <th className="py-2">Actions</th>
               </tr>
             </thead>

@@ -20,7 +20,7 @@ export function TutorCard({ tutor }: { tutor: Tutor }) {
           {tutor.availableDays}, {tutor.availableTime}
         </p>
         <p className="text-sm mb-1">Mode: {tutor.teachingMode}</p>
-        <p className="text-sm mb-4">Fee: ${tutor.hourlyFee}/hour</p>
+        <p className="text-sm mb-4">Fee: BDT {tutor.hourlyFee * 100}/hour</p>
         <div className="mt-auto">
           <Link href={`/tutors/${tutor.id}`} className="btn-main inline-flex">
             Book Session

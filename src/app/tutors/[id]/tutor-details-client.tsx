@@ -76,7 +76,7 @@ export function TutorDetailsClient({ tutorId }: { tutorId: string }) {
           <p>Session starts: {tutor.sessionStartDate}</p>
           <p>Location: {tutor.location}</p>
           <p>Mode: {tutor.teachingMode}</p>
-          <p>Fee: ${tutor.hourlyFee}/hour</p>
+          <p>Fee: BDT {tutor.hourlyFee * 100}/hour</p>
           <p className={noSlots ? "text-[var(--danger)]" : ""}>
             Total Slot Availability: {tutor.totalSlot}
           </p>

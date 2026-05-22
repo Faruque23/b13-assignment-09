@@ -103,7 +103,7 @@ export default function AddTutorPage() {
         <input
           className="field"
           type="number"
-          placeholder="Hourly Fee"
+          placeholder="Hourly Fee (BDT)"
           value={form.hourlyFee}
           onChange={(event) => setForm({ ...form, hourlyFee: event.target.value })}
           required
